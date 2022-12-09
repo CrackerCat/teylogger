@@ -9,6 +9,7 @@ if(-not $IsWindows) {
 ERROR Operating system not supported
     
 '@
+    Start-Sleep -Seconds 5
     exit
 }
 
@@ -27,6 +28,7 @@ if(Test-Path -Path $folder) {
 ERROR "C:\Teylogger" directory already exists
 
 '@
+    Start-Sleep -Seconds 5
     exit
 }
 

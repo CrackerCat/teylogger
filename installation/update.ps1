@@ -9,6 +9,7 @@ if(-not $IsWindows) {
 ERROR Operating system not supported
     
 '@
+    Start-Sleep -Seconds 5
     exit
 }
 
@@ -25,6 +26,7 @@ if(-not (Test-Path -Path $folder)) {
 ERROR "C:\Teylogger" directory not found
 
 '@
+    Start-Sleep -Seconds 5
     exit
 }
 
