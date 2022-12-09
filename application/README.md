@@ -54,6 +54,10 @@ teyl version
 
 ## ⚠ Warning
 
+- 🐚 Best experience:
+
+Please use ```Powershell``` for the best experience if you want.
+
 - 💻 Some binary code:
 
 This application include ```windows.h``` , it also includes ```winuser.h```, and it's based on US keyboard, if you're using a non-US keyboard, it may cause this issue.
