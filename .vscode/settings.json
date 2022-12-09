@@ -1,7 +1,7 @@
 {
     "files.associations": {
         "*.cpp": "cpp",
-        "*ps1": "powershell",
+        "*.ps1": "powershell",
         "*.md": "markdown"
     }
 }
