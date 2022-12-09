@@ -39,22 +39,28 @@ Write-Host @'
 
 WARNING Start working
 '@
-Start-Sleep -Seconds 2
-Write-Host 'WARNING Removing application'
-Remove-item $folder\application\$application | Out-Null
-Start-Sleep -Seconds 2
-Write-Host 'WARNING Removing command line'
-Remove-item $folder\bin\$command | Out-Null
-Start-Sleep -Seconds 2
-Write-Host 'WARNING Removing command line to PATH'
-$path = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine') | Out-Null
-$path = ($path.Split(';') | Where-Object { $_ -ne 'C:\Teylogger\bin' }) -join ';' | Out-Null
-[System.Environment]::SetEnvironmentVariable('PATH', $path, 'Machine') | Out-Null
-Start-Sleep -Seconds 4
-Write-Host 'WARNING Removing directories'
-Remove-item -itemtype Directory $folder | Out-Null
-Start-Sleep -Seconds 2
-Write-Host @'
+try {
+  Start-Sleep -Seconds 2
+  Write-Host 'WARNING Removing application'
+  Remove-item $folder\application\teylogger.exe | Out-Null
+  Start-Sleep -Seconds 2
+  Write-Host 'WARNING Removing command line'
+  Remove-item $folder\bin\teyl.exe | Out-Null
+  Start-Sleep -Seconds 2
+  Write-Host 'WARNING Removing command line from PATH'
+  [System.Environment]::SetEnvironmentVariable('Path', ([System.Environment]::GetEnvironmentVariable('Path', 'user').Split(';') | Where-Object { $_ -ne "$folder\bin" }) -join ';', 'user')
+  Write-Host 'WARNING Removing directories'
+  Remove-item $folder -Recurse | Out-Null
+  Start-Sleep -Seconds 2
+  Write-Host @'
 SUCCESS Removed application successfully
 
 '@
+} catch {
+  Write-Host @'
+ERRROR Removed application unsuccessfully
+
+'@
+  Start-Sleep -Seconds 5
+  exit
+}
