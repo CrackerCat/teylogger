@@ -2,7 +2,7 @@
 
 ![madewith][language]
 
-[language]: https://img.shields.io/badge/made%20with-C%2B%2B-f34b7d?logo%3Dcplusplus%26logoColor%3Df34b7d%26labelColor%3D202020%26color%3Df34b7d%26style%3Dfor-the-badge
+[language]: https://img.shields.io/badge/made%20with-C%2B%2B-f34b7d?logo=cplusplus&logoColor=f34b7d&labelColor=202020&color=f34b7d&style=for-the-badge
 
 ```
   _____            _
