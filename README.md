@@ -1,5 +1,9 @@
 # Teylogger
 
+![madewith][language]
+
+[language]: https://img.shields.io/badge/made%20with-C%2B%2B-f34b7d?logo%3Dcplusplus%26logoColor%3Df34b7d%26labelColor%3D202020%26color%3Df34b7d%26style%3Dfor-the-badge
+
 ```
   _____            _
  |_   _|___  _  _ | | ___  __ _  __ _  ___  _ _
