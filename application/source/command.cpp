@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
             teylogger(), success("Application has ended"), printf("\n");
             return 0;
         } else if(strcmp(argv[1], "version") == 0) {
-            teylogger(), printf("1.0.0\n\n");
+            teylogger(), printf("1.1.0\n\n");
         } else teylogger(), error("Unknown command"), printf("\n");
     };
     if(argc > 2) teylogger(), error("Unknown command"), printf("\n");
