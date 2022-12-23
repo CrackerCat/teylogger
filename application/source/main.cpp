@@ -1,5 +1,4 @@
 #include <cstdio>
-#include <ctime>
 #include <iostream>
 #include <fstream>
 #include <windows.h>
