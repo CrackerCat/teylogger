@@ -16,23 +16,24 @@
 #define BRED "\033[41m"
 #define BYELLOW "\033[43m"
 #define BGREEN "\033[42m"
-std::string now() {
-    std::time_t raw;
-    std::tm* time;
+using namespace std;
+string now() {
+    time_t raw;
+    tm* time_;
     char* buffer = new char[80];
-    std::time(&raw);
-    time = std::localtime(&raw);
-    std::strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S", time);
-    return std::string(buffer);
+    time(&raw);
+    time_ = localtime(&raw);
+    strftime(buffer, 80, "%Y-%m-%d-%H-%M-%S", time_);
+    return string(buffer);
 };
 void teylogger() {
-    std::cout << BLUE << LOGO << RESET << YELLOW << AUTHOR << RESET << "\n" << std::endl;
+    cout << BLUE << LOGO << RESET << YELLOW << AUTHOR << RESET << "\n" << endl;
 };
-void success(std::string message) {
-    std::cout << BGREEN << " SUCCESS " << RESET << " " << message << std::endl;
+void success(string message) {
+    cout << BGREEN << " SUCCESS " << RESET << " " << message << endl;
 };
-void error(std::string message) {
-    std::cout << BRED << " ERROR " << RESET << " " << message << std::endl;
+void error(string message) {
+    cout << BRED << " ERROR " << RESET << " " << message << endl;
 };
 int main(int argc, char* argv[]) {
     if(argc == 1) teylogger();
@@ -44,8 +45,8 @@ int main(int argc, char* argv[]) {
                 return 1;
             } else {
                 _mkdir("C:\\Teylogger\\logs");
-                std::fstream file;
-                file.open("C:\\Teylogger\\logs\\temp.txt", std::ios::out | std::ios::trunc);
+                fstream file;
+                file.open("C:\\Teylogger\\logs\\temp.txt", ios::out | ios::trunc);
                 file << "[THIS LOG WAS STARTING LISTENING AT " << now() << "]\n";
                 file.close();
                 teylogger(), success("Execute application successfully"), printf("\n");
@@ -56,9 +57,9 @@ int main(int argc, char* argv[]) {
                 teylogger(), error("Someting went wrong"), printf("\n");
                 return 1;
             };
-            std::string target_ = "C:\\Teylogger\\logs\\" + now() + ".txt";
-            std::ifstream  temp("C:\\Teylogger\\logs\\temp.txt", std::ios::binary);
-            std::ofstream  target(target_,   std::ios::binary);
+            string target_ = "C:\\Teylogger\\logs\\" + now() + ".txt";
+            ifstream  temp("C:\\Teylogger\\logs\\temp.txt", ios::binary);
+            ofstream  target(target_,   ios::binary);
             target << temp.rdbuf();
             teylogger(), success("Application has ended"), printf("\n");
             return 0;
